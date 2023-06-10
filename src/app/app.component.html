@@ -7,7 +7,7 @@
 </head>
 <body>
   <nav class="toolbar">
-    <h2>Angular CRUD BASICO</h2>
+    <h2>{{ title }}</h2>
   </nav>
   <section class="content">
     <div class="card-container">
@@ -15,8 +15,10 @@
       <div class="card">
         <h4 class="card-title">Contenido Tabla Personas</h4>
         <p class="card-text">Estamos usando una api rest de php/mysql</p>
+        <p>{{ VDevueltos }}</p>
         
       </div>
+      <button (click)="llamarPHP()">Llamar a PHP</button>
     </div>
   </section>
   <footer class="footer">

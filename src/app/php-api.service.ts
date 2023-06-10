@@ -9,7 +9,7 @@ export class PhpAPIService {
   private urlPHP = 'http://apipersonas/index.php';
   constructor(private Clientehttp: HttpClient) { }
 
-  llamarArchivoPHP():Observable<any> {
+  llamarArchivoPHP():Observable<Object> {
     return this.Clientehttp.get(this.urlPHP);
   }
 }
