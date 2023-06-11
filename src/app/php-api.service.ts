@@ -9,11 +9,12 @@ import { Persona } from './models/persona';
 })
 export class PhpAPIService {
   private urlPHP = 'http://localhost/apiPHP/personas';
+  private Personas:Persona[] = [new Persona()];
   constructor(private Clientehttp: HttpClient) { }
 
-  llamarArchivoPHP():Observable<any> {
+  llamarArchivoPHP():Observable<Array<Persona>> {
     
-    const personas = this.Clientehttp.get(this.urlPHP);    
-    return personas;
+    this.Personas = this.Clientehttp.get<Array<Persona>>(this.urlPHP);    
+    return this.Personas;
   }
 }
