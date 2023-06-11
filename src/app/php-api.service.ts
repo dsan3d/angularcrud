@@ -8,13 +8,24 @@ import { Persona } from './models/persona';
   providedIn: 'root'
 })
 export class PhpAPIService {
-  private urlPHP = 'http://localhost/apiPHP/personas';
+  private urlPHP = 'http://localhost/apiPHP/';
   private Personas:Persona[] = [new Persona()];
-  constructor(private Clientehttp: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  llamarArchivoPHP():Observable<Array<Persona>> {
-    
-    this.Personas = this.Clientehttp.get<Array<Persona>>(this.urlPHP);    
-    return this.Personas;
+  llamarArchivoPHP(){
+
+    return this.http.get(`${this.urlPHP}/personas`);   
+
   }
+  /*registrar(persona: Persona) {
+    return this.http.post(`${this.urlPHP}/index.php`, persona);
+  }
+
+  actualizar(persona: Persona) {
+    return this.http.put(`${this.rutaApi}/actualizarPersona.php`, persona);
+  }
+
+  eliminar(id: string | number) {
+    return this.http.delete(`${this.rutaApi}/eliminarPersona.php?id=${id}`);
+  }*/
 }

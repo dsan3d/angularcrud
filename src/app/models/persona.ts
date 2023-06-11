@@ -1,5 +1,6 @@
 export class Persona {
-    id:number=0;
-    name:string="";
-    country:string="";
+    public id:number=0;
+    public name:string="";
+    public country:string="";
+   
 }

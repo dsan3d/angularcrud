@@ -10,7 +10,7 @@ import { Persona } from './models/persona';
 export class AppComponent {
   title = 'Angular CRUD BASICO';
   VDevueltos:Persona[] = [new Persona()];
-
+  ValoresDevueltos:string ="Inicio"
   ngOnInit(){
     this.llamarPHP();
     
@@ -19,7 +19,10 @@ export class AppComponent {
   constructor(private miServicio: PhpAPIService) {   }
 
   llamarPHP(){
-    this.miServicio.llamarArchivoPHP().subscribe(
-      respuesta =>{ this.VDevueltos = respuesta; } );
+    this.miServicio.llamarArchivoPHP().subscribe((respuesta) =>{
+      this.ValoresDevueltos =respuesta.toString();
+
+    });
+     
     }
 }
