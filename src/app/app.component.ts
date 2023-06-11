@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PhpAPIService } from './php-api.service';
+import { Persona } from './models/persona';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,12 @@ import { PhpAPIService } from './php-api.service';
 })
 export class AppComponent {
   title = 'Angular CRUD BASICO';
-  VDevueltos:Object ="";
+  VDevueltos:Persona[] = [new Persona()];
+
+  ngOnInit(){
+    this.llamarPHP();
+    
+  }
 
   constructor(private miServicio: PhpAPIService) {   }
 

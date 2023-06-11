@@ -1,15 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Persona } from './models/persona';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class PhpAPIService {
-  private urlPHP = 'http://apipersonas/index.php';
+  private urlPHP = 'http://localhost/apiPHP/personas';
   constructor(private Clientehttp: HttpClient) { }
 
-  llamarArchivoPHP():Observable<Object> {
-    return this.Clientehttp.get(this.urlPHP);
+  llamarArchivoPHP():Observable<any> {
+    
+    const personas = this.Clientehttp.get(this.urlPHP);    
+    return personas;
   }
 }
